@@ -4,7 +4,8 @@ const {
   createHX,
   deleteXe,
   searchXe,
-  thuTienXe
+  thuTienXe,
+  getAllHX
 } = require("../models/xe.modal");
 
 const getAll = async (req, res) => {
@@ -22,6 +23,13 @@ const createOne = async (req, res) => {
 
 const createOneHX = async (req, res) => {
   const addHX = await createHX(req.body);
+
+  if (addHX.code == 200) res.send(addHX);
+  else res.status(400).send(addHX);
+};
+
+const getHX = async (req, res) => {
+  const addHX = await getAllHX(req.body);
 
   if (addHX.code == 200) res.send(addHX);
   else res.status(400).send(addHX);
@@ -45,4 +53,4 @@ const thuTien = async (req, res) => {
   else res.status(400).send(data);
 }
 
-module.exports = { createOne, createOneHX, getAll, deleteX, getXeby, thuTien };
+module.exports = { createOne,getHX, createOneHX, getAll, deleteX, getXeby, thuTien };

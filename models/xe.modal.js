@@ -98,6 +98,22 @@ const createHX = async (info) => {
   }
 };
 
+const getAllHX = async (info) => {
+  try {
+    var query = `select * from hieuXe`;
+    const data = await connect.query(query);
+    return {
+      code: "200",
+      data: data.recordset
+    };
+  } catch (error) {
+    return {
+      code: "400",
+      error: error.originalError.info.message,
+    };
+  }
+};
+
 const deleteHX = async (info) => {
   try {
     var query = `delete from HieuXe where (maHX = ${info.maHX})`;
@@ -121,5 +137,6 @@ module.exports = {
   getCar,
   searchXe,
   deleteXe,
-  thuTienXe
+  thuTienXe,
+  getAllHX
 };
