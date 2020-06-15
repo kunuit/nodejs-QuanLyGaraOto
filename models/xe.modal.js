@@ -18,6 +18,7 @@ const getCar = async (info) => {
 
 const deleteXe = async (info) => {
   try {
+    console.log(info)
     var query = `delete from xe where (bienSoXe = '${info.bienSoXe}')`;
     const data = await connect.query(query);
     return {
@@ -68,8 +69,11 @@ const thuTienXe = async (info) => {
 const createFixCar = async (info) => {
   try {
     const { bienSoXe, tenChuXe, sdt, diaChi, email, maHX, ngayTiepNhan } = info;
-    var query = `insert into XE values ('${bienSoXe}', '${tenChuXe}','${sdt}','${diaChi}','${email}',${maHX},'${ngayTiepNhan}', 0)`;
+    console.log(info)
+    var query = `insert into XE values ('${bienSoXe}', N'${tenChuXe}','${sdt}','${diaChi}','${email}',${maHX},'${ngayTiepNhan}', 0)`;
+    console.log(query)
     const data = await connect.query(query);
+    console.log(data)
     return {
       code: "200",
       data,

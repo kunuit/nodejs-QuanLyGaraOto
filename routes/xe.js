@@ -11,7 +11,7 @@ router.get('/hieuXe', getHX)
 // post hieu xe
 router.post('/hieuXe', createOneHX)
 // delete xe
-router.delete('/', deleteX)
+router.delete('/:bienSoXe', deleteX)
 // search xe
 router.get('/:data', getXeby)
 // thu tien tien 

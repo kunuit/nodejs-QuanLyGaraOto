@@ -10,9 +10,10 @@ const createSuaChuaCar = async (info) => {
       thanhTienPT,
       tongTien,
     } = info;
-    var query = `insert into phieuSuaChua values ('${ngaySuaChua}', '${bienSo}','${noiDung}',${thanhTienPT},${maTienCong},${tongTien})`;
+    console.log(info)
+    var query = `insert into phieuSuaChua values ('${ngaySuaChua}', '${bienSo}', N'${noiDung}',${thanhTienPT},${maTienCong},${tongTien})`;
     const data = await connect.query(query);
-    var addtienNo = `update Xe SET tienNo = tienNo + ${thanhTienPT}
+    var addtienNo = `update Xe SET tienNo = tienNo + ${tongTien}
     Where bienSoXe = '${bienSo}'`;
     const data2 = await connect.query(addtienNo);
     return {
@@ -48,7 +49,7 @@ const getAllTienCong = async (info) => {
 const createTienCong = async (info) => {
   try {
     const {tenTienCong, triGia} = info
-    const query = `insert into tienCong values ('${tenTienCong}','${triGia}')`;
+    const query = `insert into tienCong values (N'${tenTienCong}',${triGia})`;
     const data = await connect.query(query);
     return {
       code: "200",
@@ -114,7 +115,7 @@ const getAllPhuTung = async (info) => {
 const createPhuTung = async (info) => {
   try {
     const {tenPT, donGia} = info
-    const query = `insert into phuTung values ('${tenPT}','${donGia}')`;
+    const query = `insert into phuTung values (N'${tenPT}','${donGia}')`;
     const data = await connect.query(query);
     return {
       code: "200",
@@ -146,7 +147,7 @@ const updatePhuTung = async (info) => {
 
 const deletePhuTung = async (info) => {
   try {
-    const query = `delete from phuTung where maPT = ${info.maPT}`;
+    const query = `delete from phuTung where maPT = ${info.maPhuTung}`;
     const data = await connect.query(query);
     return {
       code: "200",

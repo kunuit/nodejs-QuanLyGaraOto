@@ -36,7 +36,7 @@ const getHX = async (req, res) => {
 };
 
 const deleteX = async (req, res) => {
-  const data = await deleteXe(req.body);
+  const data = await deleteXe(req.params);
   if (data.code == 200) res.send(data);
   else res.status(400).send(data);
 };

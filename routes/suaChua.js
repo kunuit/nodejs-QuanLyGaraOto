@@ -22,7 +22,7 @@ router.get('/tc', getAllTC)
 // put update tien cong
 router.put('/tc', updateTC) // {triGia maTienCong}
 // delete delete tien cong
-router.delete('/tc', deleteTC)// {maTienCong}
+router.delete('/tc/:maTienCong', deleteTC)// {maTienCong}
 // get all phu tung
 router.get('/pt', getAllPT)
 // post phu tung
@@ -30,7 +30,7 @@ router.post('/pt', createPT)
 // put update phu tung
 router.put('/pt', updatePT)// {donGia maPT}
 // delete delete phu tung
-router.delete('/pt', deletePT)// maPT
+router.delete('/pt/:maPhuTung', deletePT)// maPT
 
 router.get("/", (req, res) => {
   res.send("aloalo");

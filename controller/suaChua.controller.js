@@ -39,7 +39,7 @@ const updatePT = async (req, res) => {
 };
 
 const deletePT = async (req, res) => {
-  const data = await deletePhuTung(req.body);
+  const data = await deletePhuTung(req.params);
   if (data.code == 200) res.send(data);
   else res.status(400).send(data);
 };
@@ -59,7 +59,7 @@ const updateTC = async (req, res) => {
 };
 
 const deleteTC = async (req, res) => {
-  const data = await deleteTienCong(req.body);
+  const data = await deleteTienCong(req.params);
   if (data.code == 200) res.send(data);
   else res.status(400).send(data);
 };
