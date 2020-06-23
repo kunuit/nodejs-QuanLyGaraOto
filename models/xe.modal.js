@@ -88,7 +88,7 @@ const createFixCar = async (info) => {
 
 const createHX = async (info) => {
   try {
-    var query = `insert into HieuXe values ('${info.hieuXe}')`;
+    var query = `insert into HieuXe values (N'${info.hieuXe}')`;
     const data = await connect.query(query);
     return {
       code: "200",
