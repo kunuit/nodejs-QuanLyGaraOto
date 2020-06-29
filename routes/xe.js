@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const {createOne, createOneHX, getHX, getAll, deleteX, getXeby, thuTien} = require('../controller/xe.controller')
-// get all xe
+// TODO get all xe
 router.get('/', getAll)
 // post phieu tiep nhan
 router.post('/', createOne);

@@ -34,9 +34,13 @@ const deleteXe = async (info) => {
 };
 
 const searchXe = async (info) => {
+  console.log(info.data, typeof(info.data))
+  let parsed = parseInt(info.data)
+  console.log(parsed, typeof(parsed))
   try {
-    var query = `select * from xe where bienSoXe ='${info.data}' or tenChuXe='${info.data}' or maHX='${info.data}'`;
+    var query = `select * from xe where BienSoXe ='${info.data}' or tenChuXe='${info.data}' or maHX= ${parsed}`;
     const data = await connect.query(query);
+    console.log(data)
     return {
       code: "200",
       data: data.recordset,
