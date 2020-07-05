@@ -18,4 +18,4 @@
   run cmd -> run npm start 
   
 ### Front-end
-  - file home.html
+  - run file home.html
